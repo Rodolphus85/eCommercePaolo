@@ -12,8 +12,6 @@ class cartListController
     }
 
     public function action(){
-        $head_title = "Paolo's Commerce - PRODUCTOS AGREGADOS AL CARRITO";
-        $page_title = $head_title;
         $src_images_products = "/images/Products/";
 
         $loader = new \Twig\Loader\FilesystemLoader('../views');
@@ -44,8 +42,6 @@ class cartListController
         }
 
         $response = new Response($this->templateEngine->render('cart_list.html.twig', [
-            'head_title' => $head_title,
-            'page_title' => $page_title,
             'src_images_products' => $src_images_products,
             'productos' => $productos
         ]));

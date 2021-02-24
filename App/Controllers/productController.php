@@ -16,8 +16,6 @@ class productController
 
     public function action($id, Request $request){
 
-        $head_title = 'Producto';
-        $page_title = "Paolo's Commerce - PRODUCTO";
         $src_images_products = "/images/Products/";
 
         $loader = new \Twig\Loader\FilesystemLoader('../views');
@@ -32,8 +30,6 @@ class productController
         $producto = $repo->find($id);
 
         $response = new Response($this->templateEngine->render('product.html.twig', [
-            'head_title' => $head_title,
-            'page_title' => $page_title,
             'src_images_products' => $src_images_products,
             'producto' => $producto
         ]));

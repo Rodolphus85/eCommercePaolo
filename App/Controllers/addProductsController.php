@@ -14,8 +14,6 @@ class addProductsController
     }
 
     public function action(Request $request){
-        $head_title = 'Alta de Productos';
-        $page_title = "Paolo's Commerce - ALTA DE PRODUCTO";
 
         $loader = new \Twig\Loader\FilesystemLoader('../views');
         $this->templateEngine = new \Twig\Environment($loader, [
@@ -57,8 +55,6 @@ class addProductsController
 
         $response = new Response($this->templateEngine->render('add_products.html.twig', [
             'inserto' => $insert,
-            'head_title' => $head_title,
-            'page_title' => $page_title
         ]));
 
         return $response;
