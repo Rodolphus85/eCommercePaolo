@@ -1,7 +1,13 @@
 /.idea
+<<<<<<< HEAD
 /images
 datos_conexion.php
 .env
 vendor/
 web/
 
+=======
+/web/images
+.env
+/vendor
+>>>>>>> my-framework
