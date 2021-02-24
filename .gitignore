@@ -1,3 +1,7 @@
 /.idea
 /images
 datos_conexion.php
+.env
+vendor/
+web/
+
