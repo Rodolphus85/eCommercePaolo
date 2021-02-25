@@ -3,22 +3,17 @@ namespace App\Controllers;
 use Symfony\Component\HttpFoundation\Response;
 use Doctrine\ORM\EntityManager;
 
-class cartListController
+class cartListController extends baseController
 {
     private $entityManager;
 
     public function __construct(EntityManager $entityManager){
+        parent::__construct();
         $this->entityManager = $entityManager;
     }
 
     public function action(){
         $src_images_products = "/images/Products/";
-
-        $loader = new \Twig\Loader\FilesystemLoader('../views');
-        $this->templateEngine = new \Twig\Environment($loader, [
-            'debug' => true,
-            'cache' => false
-        ]);
 
         $productos = null;
 

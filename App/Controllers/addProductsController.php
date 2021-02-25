@@ -5,21 +5,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Doctrine\ORM\EntityManager;
 use App\Entities\AppProduct;
 
-class addProductsController
+class addProductsController extends baseController
 {
     private $entityManager;
 
     public function __construct(EntityManager $entityManager){
+        parent::__construct();
         $this->entityManager = $entityManager;
     }
 
     public function action(Request $request){
-
-        $loader = new \Twig\Loader\FilesystemLoader('../views');
-        $this->templateEngine = new \Twig\Environment($loader, [
-            'debug' => true,
-            'cache' => false
-        ]);
 
         if ($_SERVER['PHP_AUTH_USER'] <> 'pepe' && $_SERVER['PHP_AUTH_PW'] <> 'tito') {
             header('WWW-Authenticate: Basic realm="Ingresar usuario y contraseña"');

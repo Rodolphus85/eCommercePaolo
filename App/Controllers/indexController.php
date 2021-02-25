@@ -8,31 +8,17 @@ use Doctrine\ORM\EntityManager;
 
 session_start();
 
-class indexController
+class indexController extends baseController
 {
     private $entityManager;
     protected $templateEngine;
-    /*
-    public function __construct(){
-        $loader = new \Twig\Loader\FilesystemLoader('../../views');
-        $this->templateEngine = new \Twig\Environment($loader, [
-            'debug' => true,
-            'cache' => false
-        ]);
-    }*/
 
     public function __construct(EntityManager $entityManager){
+        parent::__construct();
         $this->entityManager = $entityManager;
     }
 
     public function action(){
-
-        $loader = new \Twig\Loader\FilesystemLoader('../views');
-        $this->templateEngine = new \Twig\Environment($loader, [
-            'debug' => true,
-            'cache' => false
-        ]);
-
         $src_images = "/images/";
         $src_images_products = "/images/Products/";
 

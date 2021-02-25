@@ -5,24 +5,19 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Doctrine\ORM\EntityManager;
 
-class productController
+class productController extends baseController
 {
     private $entityManager;
     protected $templateEngine;
 
     public function __construct(EntityManager $entityManager){
+        parent::__Construct();
         $this->entityManager = $entityManager;
     }
 
     public function action($id, Request $request){
 
         $src_images_products = "/images/Products/";
-
-        $loader = new \Twig\Loader\FilesystemLoader('../views');
-        $this->templateEngine = new \Twig\Environment($loader, [
-            'debug' => true,
-            'cache' => false
-        ]);
 
         //$id = $request->get('id');
         $repo = $this->entityManager->getRepository('App\Entities\AppProduct');
